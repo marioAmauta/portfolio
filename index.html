@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles.css" />
+    <title>My Portfolio</title>
+  </head>
+  <body>
+    <header class="header">
+      <div class="header-title">
+        <h2>Mario</h2>
+      </div>
+      <nav id="navbar">
+        <a class="navbar-link" href="#">Hello</a>
+        <a class="navbar-link" href="#">Hello</a>
+        <a class="navbar-link" href="#">Hello</a>
+        <a class="navbar-link" href="#">Hello</a>
+        <a class="navbar-link" href="#">Hello</a>
+        <a class="navbar-link" href="#">Hello</a>
+      </nav>
+    </header>
+    <main>
+      <section id="welcome-section">
+        <h1>
+          Hello, I'm Mario
+          <br />
+          Front-End Developer
+        </h1>
+      </section>
+      <section id="projects">
+        <figure class="project-card">
+          <img
+            src="https://www.freecodecamp.org/news/content/images/size/w2000/2022/05/ilya-pavlov-OqtafYT5kTw-unsplash.jpg"
+            alt="coding image"
+          />
+          <figcaption>Project 1</figcaption>
+        </figure>
+      </section>
+      <a href="#" id="profile-link">Profile Link</a>
+    </main>
+    <nav id="mobile-navbar">
+      <a href="#">About Me</a>
+      <a href="#">My Projects</a>
+      <a href="#">Contact</a>
+    </nav>
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+        let previousScrollPosition = 0;
+
+        const isScrollingDown = () => {
+          let currentScrolledPosition = window.scrollY || window.pageYOffset;
+          let scrollingDown;
+
+          if (currentScrolledPosition > previousScrollPosition) {
+            scrollingDown = true;
+          } else {
+            scrollingDown = false;
+          }
+
+          previousScrollPosition = currentScrolledPosition;
+          return scrollingDown;
+        };
+
+        const $header = document.querySelector('.header');
+
+        const handleHeaderScroll = () => {
+          if (isScrollingDown()) {
+            $header.classList.add('scroll-down');
+            $header.classList.remove('scroll-up');
+          } else {
+            $header.classList.add('scroll-up');
+            $header.classList.remove('scroll-down');
+          }
+        };
+
+        let throttleWait;
+
+        const throttle = (callback, time) => {
+          if (throttleWait) return;
+
+          throttleWait = true;
+
+          setTimeout(() => {
+            callback();
+            throttleWait = false;
+          }, time);
+        };
+
+        window.addEventListener('scroll', () => {
+          throttle(handleHeaderScroll, 300);
+        });
+      });
+    </script>
+  </body>
+</html>
