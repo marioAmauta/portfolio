@@ -1,5 +1,12 @@
+:root {
+  --body-bg-color: #150050;
+  --navbar-bg-color: #000000;
+  --navbar-color: #FFFBEB;
+}
+
 html {
   box-sizing: border-box;
+  scroll-behavior: smooth;
 }
 
 *,
@@ -10,31 +17,90 @@ html {
   padding: 0;
 }
 
+body {
+  font-family: sans-serif;
+  background-color: var(--body-bg-color);
+}
+
 .header {
-  position: sticky;
+  position: fixed;
   top: 0;
-  transition: top 500ms ease-in-out;
+  background-color: var(--navbar-bg-color);
+  color: var(--navbar-color);
+  width: 100%;
+  height: 5rem;
   display: flex;
-  flex-wrap: wrap;
   justify-content: space-between;
-  padding: 1.5rem 2rem;
-  background-color: #eaeaea;
+  align-items: center;
 }
 
-.header.scroll-up {
-  top: 0;
+.brand,
+#navbar a {
+  text-decoration: none;
+  color: unset;
+  font-size: 1.2rem;
 }
 
-.header.scroll-down {
-  top: -100%;
+.brand {
+  margin-left: 3rem;
+}
+
+#navbar a {
+  margin-right: 3rem;
+}
+
+#navbar a:hover {
+  border-bottom: 1px solid;
 }
 
 #welcome-section {
-  background-color: green;
-  width: 100%;
+  background-color: darkred;
   height: 100vh;
+  display: grid;
+  place-items: center;
+}
+
+.welcome-title,
+#projects h2 {
+  text-align: center;
+}
+
+.welcome-title span {
+  display: block;
+}
+
+.title-part1 {
+  font-size: 3rem;
+  color: white;
+  margin-bottom: 2rem;
+}
+
+.title-part2 {
+  font-style: italic;
+  font-weight: 200;
+  color: yellow;
+}
+
+.projects-container {
+  width: 100%;
+  background-color: lightblue;
   display: flex;
   justify-content: center;
+  flex-wrap: wrap;
+}
+
+.project-card {
+  display: flexbox;
+  justify-content: center;
   align-items: center;
-  text-align: center;
+  width: min-content;
+  padding: 2rem;
+  margin: 2rem;
+  background-color: green;
+}
+
+.project-card img {
+  min-width: 200px;
+  max-width: 500px;
+
 }
