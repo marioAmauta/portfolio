@@ -23,7 +23,10 @@
         href="#welcome-section"
         >Mario Programador</a
       >
-      <nav id="navbar">
+      <nav
+        id="navbar"
+        class="desktop-navbar"
+      >
         <a
           class="navbar-link"
           href="#projects"
@@ -43,13 +46,11 @@
     </header>
     <main>
       <section id="welcome-section">
-        <h1 class="welcome-title">
-          <span class="title-part1"> Hello!, I'm Mario </span>
-          <span class="title-part2"> Front-End Developer </span>
-        </h1>
+        <h1 class="welcome-title">Hey I'm Mario</h1>
+        <p class="welcome-subtitle">Front-End Developer</p>
       </section>
       <section id="projects">
-        <h2>These are some of my projects</h2>
+        <h2 class="project-title">These are some of my projects</h2>
         <div class="projects-container">
           <figure class="project-card">
             <img
@@ -70,7 +71,25 @@
               src="https://mariodesarrollador.files.wordpress.com/2022/11/marioamauta.github.io_saxophone-landing-page_.png?"
               alt="the-saxphone-corner-project-screenshot"
             />
-            <figcaption>The Saxophone Corner</figcaption>
+            <figcaption class="project-card-info">
+              <h4 class="project-card-title">The Saxophone Corner</h4>
+              <div class="project-card-links-container">
+                <a
+                  href="https://github.com/marioAmauta/saxophone-landing-page"
+                  rel="noopener noreferrer"
+                  target="_blank"
+                >
+                  Code
+                </a>
+                <a
+                  href="https://marioamauta.github.io/saxophone-landing-page/"
+                  rel="noopener noreferrer"
+                  target="_blank"
+                >
+                  Demo
+                </a>
+              </div>
+            </figcaption>
           </figure>
           <figure class="project-card">
             <img
@@ -82,9 +101,9 @@
         </div>
       </section>
     </main>
-    <nav id="mobile-navbar">
-      <a href="#">About Me</a>
-      <a href="#">My Projects</a>
+    <nav class="mobile-navbar">
+      <a href="#projects">Projects</a>
+      <a href="#">About</a>
       <a href="#">Contact</a>
     </nav>
   </body>
