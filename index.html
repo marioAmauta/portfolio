@@ -12,6 +12,14 @@
     />
     <link
       rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0"
+    />
+    <link
+      rel="stylesheet"
       href="styles.css"
     />
     <title>My Portfolio</title>
@@ -23,6 +31,11 @@
         href="#welcome-section"
         >Mario Programador</a
       >
+      <nav class="mobile-navbar">
+        <a href="#projects">Projects</a>
+        <a href="#">About</a>
+        <a href="#">Contact</a>
+      </nav>
       <nav
         id="navbar"
         class="desktop-navbar"
@@ -30,19 +43,20 @@
         <a
           class="navbar-link"
           href="#projects"
-          >My Projects</a
+          >Projects</a
         >
         <a
           class="navbar-link"
           href="#"
-          >About Me</a
+          >About</a
         >
         <a
           class="navbar-link"
           href="#"
-          >Contact Me</a
+          >Contact</a
         >
       </nav>
+      <div id="toggle"></div>
     </header>
     <main>
       <section id="welcome-section">
@@ -101,10 +115,12 @@
         </div>
       </section>
     </main>
-    <nav class="mobile-navbar">
-      <a href="#projects">Projects</a>
-      <a href="#">About</a>
-      <a href="#">Contact</a>
-    </nav>
+    <script>
+      const toggle = document.getElementById('toggle')
+      console.log(toggle)
+      toggle.addEventListener('click', () => {
+        toggle.classList.toggle('active')
+      })
+    </script>
   </body>
 </html>
