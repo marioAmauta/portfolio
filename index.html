@@ -22,41 +22,44 @@
       rel="stylesheet"
       href="styles.css"
     />
+
     <title>My Portfolio</title>
   </head>
   <body>
+    <nav id="mobile-navbar">
+      <a href="#projects">Projects</a>
+      <a href="#">About</a>
+      <a href="#">Contact</a>
+    </nav>
     <header class="header">
-      <a
-        class="brand"
-        href="#welcome-section"
-        >Mario Programador</a
-      >
-      <nav class="mobile-navbar">
-        <a href="#projects">Projects</a>
-        <a href="#">About</a>
-        <a href="#">Contact</a>
-      </nav>
-      <nav
-        id="navbar"
-        class="desktop-navbar"
-      >
+      <div class="header-inner-container">
         <a
-          class="navbar-link"
-          href="#projects"
-          >Projects</a
+          class="brand"
+          href="#welcome-section"
+          >Mario Programador</a
         >
-        <a
-          class="navbar-link"
-          href="#"
-          >About</a
+        <nav
+          id="navbar"
+          class="desktop-navbar"
         >
-        <a
-          class="navbar-link"
-          href="#"
-          >Contact</a
-        >
-      </nav>
-      <div id="toggle"></div>
+          <a
+            class="navbar-link"
+            href="#projects"
+            >Projects</a
+          >
+          <a
+            class="navbar-link"
+            href="#"
+            >About</a
+          >
+          <a
+            class="navbar-link"
+            href="#"
+            >Contact</a
+          >
+        </nav>
+        <div id="toggle"></div>
+      </div>
     </header>
     <main>
       <section id="welcome-section">
@@ -83,7 +86,7 @@
           <figure class="project-card">
             <img
               src="https://mariodesarrollador.files.wordpress.com/2022/11/marioamauta.github.io_saxophone-landing-page_.png?"
-              alt="the-saxphone-corner-project-screenshot"
+              alt="the-saxophone-corner-project-screenshot"
             />
             <figcaption class="project-card-info">
               <h4 class="project-card-title">The Saxophone Corner</h4>
@@ -116,11 +119,23 @@
       </section>
     </main>
     <script>
-      const toggle = document.getElementById('toggle')
-      console.log(toggle)
+      const toggle = document.getElementById('toggle');
+      console.log(toggle);
+
+      const mobileNavbar = document.getElementById('mobile-navbar');
+      console.log(mobileNavbar);
+
       toggle.addEventListener('click', () => {
-        toggle.classList.toggle('active')
-      })
+        toggle.classList.toggle('active');
+        mobileNavbar.classList.toggle('active');
+      });
+
+      document.addEventListener('click', e => {
+        if (e.target.id !== 'toggle' && e.target.id !== 'mobile-navbar') {
+          toggle.classList.remove('active');
+          mobileNavbar.classList.remove('active');
+        }
+      });
     </script>
   </body>
 </html>
