@@ -49,7 +49,7 @@ a:focus {
   border-radius: 50%;
   border: none;
   outline: none;
-  background-color: rgba(255, 0, 0, 0.3);
+  background-color: rgba(255, 255, 255, 0.3);
   backdrop-filter: blur(0.5rem);
   color: black;
   cursor: pointer;
@@ -73,7 +73,7 @@ a:focus {
   padding: var(--header-padding);
 }
 
-#toggle {
+.toggle {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -82,8 +82,8 @@ a:focus {
   cursor: pointer;
 }
 
-#toggle::before,
-#toggle::after {
+.toggle::before,
+.toggle::after {
   content: '';
   position: absolute;
   width: 1.6rem;
@@ -92,25 +92,25 @@ a:focus {
   border-radius: 0.1rem;
 }
 
-#toggle::before {
+.toggle::before {
   transform: translateY(-5px);
   transition: 0.3s;
 }
 
-#toggle::after {
+.toggle::after {
   transform: translateY(5px);
   transition: 0.5s;
 }
 
-#toggle.active::before {
+.toggle.active::before {
   transform: translateY(0px) rotate(45deg);
 }
 
-#toggle.active::after {
+.toggle.active::after {
   transform: translateY(0px) rotate(-45deg);
 }
 
-#mobile-navbar {
+.mobile-navbar {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -123,11 +123,11 @@ a:focus {
   color: var(--navbar-color);
 }
 
-#mobile-navbar.active {
+.mobile-navbar.active {
   top: var(--header-height);
 }
 
-#mobile-navbar a {
+.mobile-navbar a {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -135,11 +135,11 @@ a:focus {
   width: 100%;
 }
 
-#mobile-navbar a:hover {
+.mobile-navbar a:hover {
   color: aqua;
 }
 
-#navbar {
+.navbar {
   display: none;
   justify-content: space-between;
   align-items: center;
@@ -149,34 +149,28 @@ a:focus {
 
 .section-title {
   text-align: center;
-  margin: 1rem 0;
+  margin: 1rem 0 2rem 0;
 }
 
-#welcome-section {
+.welcome-section {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-image: linear-gradient(90deg, #3a3d40 0%, #181719 100%);
+  background-image: linear-gradient(120deg, black, darkred);
   height: calc(100dvh - var(--header-height));
 }
 
-#welcome-section h1 {
+.welcome-section h1 {
   font-size: 2.5rem;
   color: white;
   margin: 0 0 2.5rem 0;
 }
 
-#welcome-section p {
+.welcome-section p {
   font-style: italic;
   font-size: 1.2rem;
   color: gold;
-}
-
-#projects,
-#about,
-#contact {
-  padding: var(--header-height) 1rem;
 }
 
 .projects-container {
@@ -226,15 +220,15 @@ a:focus {
     --header-padding: 0 4rem;
   }
 
-  #mobile-navbar {
+  .mobile-navbar {
     display: none;
   }
 
-  #toggle {
+  .toggle {
     display: none;
   }
 
-  #navbar {
+  .navbar {
     display: flex;
   }
 }
