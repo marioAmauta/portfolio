@@ -12,21 +12,21 @@
     />
     <link
       rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0"
-    />
-    <link
-      rel="stylesheet"
       href="styles.css"
     />
-
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+      integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
     <title>My Portfolio</title>
   </head>
   <body>
-    <button class="to-top-button">to top</button>
+    <button class="to-top-button">
+      <span class="fa-solid fa-arrow-up"></span>
+    </button>
     <nav id="mobile-navbar">
       <a href="#projects">Projects</a>
       <a href="#about">About</a>
@@ -35,7 +35,7 @@
     <header class="header">
       <a
         class="brand"
-        href="#welcome-section"
+        href="#"
         >Mario Programador</a
       >
       <nav id="navbar">
@@ -45,7 +45,7 @@
       </nav>
       <div id="toggle"></div>
     </header>
-    <main class="main">
+    <main class="main-section">
       <section id="welcome-section">
         <h1>Hey I'm Mario</h1>
         <p>Front-End Developer</p>
@@ -117,7 +117,7 @@
         </p>
       </section>
       <section id="contact">
-        <h2>Contact</h2>
+        <h2 class="section-title">Contact</h2>
         <p>
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum, ratione deleniti dolor deserunt voluptatem
           quam non asperiores atque, illum quibusdam blanditiis sapiente corporis eius molestias? Ab veniam eaque ipsa
@@ -135,20 +135,38 @@
         </p>
       </section>
     </main>
-    <script>
-      const toggle = document.getElementById('toggle');
-      const mobileNavbar = document.getElementById('mobile-navbar');
 
-      toggle.addEventListener('click', () => {
-        toggle.classList.toggle('active');
-        mobileNavbar.classList.toggle('active');
+    <script>
+      const $toggle = document.getElementById('toggle');
+      const $mobileNavbar = document.getElementById('mobile-navbar');
+
+      $toggle.addEventListener('click', () => {
+        $toggle.classList.toggle('active');
+        $mobileNavbar.classList.toggle('active');
       });
 
       document.addEventListener('click', e => {
         if (e.target.id !== 'toggle' && e.target.id !== 'mobile-navbar') {
-          toggle.classList.remove('active');
-          mobileNavbar.classList.remove('active');
+          $toggle.classList.remove('active');
+          $mobileNavbar.classList.remove('active');
         }
+      });
+
+      const $toTopButton = document.querySelector('.to-top-button');
+
+      window.addEventListener('scroll', () => {
+        const scrollLimit = 700;
+
+        if (document.documentElement.scrollTop > scrollLimit || document.body.scrollTop > scrollLimit) {
+          $toTopButton.style.display = 'flex';
+        } else {
+          $toTopButton.style.display = 'none';
+        }
+      });
+
+      $toTopButton.addEventListener('click', () => {
+        document.documentElement.scrollTop = 0;
+        document.body.scrollTop = 0;
       });
     </script>
   </body>
