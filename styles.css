@@ -4,6 +4,8 @@
 
   --navbar-background-color: #000000;
   --navbar-color: #FFFBEB;
+
+  --projects-section-padding: var(--header-height) 1rem;
 }
 
 html {
@@ -33,6 +35,12 @@ a:hover,
 a:active,
 a:focus {
   text-decoration: underline;
+}
+
+img {
+  display: block;
+  height: auto;
+  width: 100%;
 }
 
 .to-top-button {
@@ -149,7 +157,7 @@ a:focus {
 
 .section-title {
   text-align: center;
-  margin: 1rem 0 2rem 0;
+  margin: 1rem auto;
 }
 
 .welcome-section {
@@ -157,8 +165,8 @@ a:focus {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-image: linear-gradient(120deg, black, darkred);
-  height: calc(100dvh - var(--header-height));
+  background-image: linear-gradient(120deg, black, darkred, gray);
+  height: calc(100vh - var(--header-height));
 }
 
 .welcome-section h1 {
@@ -173,46 +181,29 @@ a:focus {
   color: gold;
 }
 
-.projects-container {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 3rem;
-  width: 100%;
+.projects-section {
+  background-color: gray;
+  padding: var(--projects-section-padding);
 }
 
-.project-card {
+.projects-section h2 {
+  text-align: center;
+  font-size: 2rem;
+  margin: 2rem 0 4rem 0;
+}
+
+.projects-container {
+  background-color: red;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 400px));
+  place-content: center;
+  gap: 3rem;
+  margin-bottom: 3rem;
+}
+
+.project-tile {
   background-color: black;
   color: white;
-  max-width: 20rem;
-  border-radius: .5rem;
-  text-align: center;
-}
-
-.project-card img {
-  border-radius: 0.5rem 0.5rem 0 0;
-  width: 100%;
-}
-
-.project-card-title {
-  text-align: left;
-}
-
-.project-card-info {
-  padding: 1rem;
-}
-
-.project-card-links-container {
-  padding: 0.5rem 0;
-}
-
-.project-card-links-container a {
-  text-decoration: none;
-  color: black;
-  background-color: white;
-  padding: .5rem 1.5rem;
-  margin: .5rem;
-  border-radius: .5rem;
 }
 
 @media screen and (min-width: 48rem) {

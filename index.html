@@ -70,30 +70,91 @@
         id="projects"
         class="projects-section"
       >
-        <h2 class="section-title">Some of my projects</h2>
+        <h2>Some of my projects</h2>
         <div class="projects-container">
-          <figure class="project-card">
+          <figure class="project-tile">
             <img
               src="https://mariodesarrollador.files.wordpress.com/2022/11/marioamauta.github.io_survey-form_.png"
               alt="survey-form-project-screenshot"
             />
-            <figcaption>Survey Form</figcaption>
+            <figcaption class="project-tile-info">
+              <h4 class="project-tile-info-title">Survey Form</h4>
+              <div class="project-tile-info-links">
+                <a
+                  href="https://github.com/marioAmauta/survey-form"
+                  rel="noopener noreferrer"
+                  target="_blank"
+                >
+                  Code
+                </a>
+                <a
+                  href="https://marioamauta.github.io/survey-form"
+                  rel="noopener noreferrer"
+                  target="_blank"
+                >
+                  Demo
+                </a>
+              </div>
+            </figcaption>
           </figure>
-          <figure class="project-card">
+          <figure class="project-tile">
             <img
               src="https://mariodesarrollador.files.wordpress.com/2022/11/marioamauta.github.io_javascript-documentation_-1.png"
               alt="javascript-documentation-project-screenshot"
             />
-            <figcaption>JavaScript Documentation</figcaption>
+            <figcaption class="project-tile-info">
+              <h4 class="project-tile-info-title">JavaScript Documentation</h4>
+              <div class="project-tile-info-links">
+                <a
+                  href="https://github.com/marioAmauta/javascript-documentation"
+                  rel="noopener noreferrer"
+                  target="_blank"
+                >
+                  Code
+                </a>
+                <a
+                  href="https://marioamauta.github.io/javascript-documentation"
+                  rel="noopener noreferrer"
+                  target="_blank"
+                >
+                  Demo
+                </a>
+              </div>
+            </figcaption>
           </figure>
-          <figure class="project-card">
+          <figure class="project-tile">
             <img
               src="https://mariodesarrollador.files.wordpress.com/2022/11/marioamauta.github.io_saxophone-landing-page_.png?"
               alt="the-saxophone-corner-project-screenshot"
             />
-            <figcaption class="project-card-info">
-              <h4 class="project-card-title">The Saxophone Corner</h4>
-              <div class="project-card-links-container">
+            <figcaption class="project-tile-info">
+              <h4 class="project-tile-info-title">The Saxophone Corner</h4>
+              <div class="project-tile-info-links">
+                <a
+                  href="https://github.com/marioAmauta/saxophone-landing-page"
+                  rel="noopener noreferrer"
+                  target="_blank"
+                >
+                  Code
+                </a>
+                <a
+                  href="https://marioamauta.github.io/saxophone-landing-page"
+                  rel="noopener noreferrer"
+                  target="_blank"
+                >
+                  Demo
+                </a>
+              </div>
+            </figcaption>
+          </figure>
+          <figure class="project-tile">
+            <img
+              src="https://mariodesarrollador.files.wordpress.com/2022/11/marioamauta.github.io_survey-form_.png"
+              alt="survey-form-project-screenshot"
+            />
+            <figcaption class="project-tile-info">
+              <h4 class="project-tile-info-title">The Saxophone Corner</h4>
+              <div class="project-tile-info-links">
                 <a
                   href="https://github.com/marioAmauta/saxophone-landing-page"
                   rel="noopener noreferrer"
@@ -110,13 +171,6 @@
                 </a>
               </div>
             </figcaption>
-          </figure>
-          <figure class="project-card">
-            <img
-              src="https://mariodesarrollador.files.wordpress.com/2022/11/marioamauta.github.io_survey-form_.png"
-              alt="survey-form-project-screenshot"
-            />
-            <figcaption>Survey Form</figcaption>
           </figure>
         </div>
       </section>
@@ -143,6 +197,14 @@
         class="contact-section"
       >
         <h2 class="section-title">Contact</h2>
+        <a
+          id="profile-link"
+          href="https://github.com/marioAmauta/"
+          rel="noopener noreferrer"
+          target="_blank"
+        >
+          My Github profile
+        </a>
         <p>
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum, ratione deleniti dolor deserunt voluptatem
           quam non asperiores atque, illum quibusdam blanditiis sapiente corporis eius molestias? Ab veniam eaque ipsa
@@ -180,7 +242,7 @@
       const $toTopButton = document.querySelector('.to-top-button');
 
       window.addEventListener('scroll', () => {
-        const scrollLimit = 700;
+        const scrollLimit = 600;
 
         if (document.documentElement.scrollTop > scrollLimit || document.body.scrollTop > scrollLimit) {
           $toTopButton.style.display = 'flex';
