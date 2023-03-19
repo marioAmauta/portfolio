@@ -26,37 +26,39 @@
       content="black"
     />
     <title>My Portfolio</title>
+    <meta
+      name="description"
+      content="Hello I am Mario and this is my Portfolio, here you can find information about me and my projects"
+    />
   </head>
   <body>
     <button class="to-top-button">
       <span class="fa-solid fa-arrow-up"></span>
     </button>
-    <nav
-      id="mobile-navbar"
-      class="mobile-navbar"
-    >
-      <a href="#projects">Projects</a>
-      <a href="#about">About</a>
-      <a href="#contact">Contact</a>
-    </nav>
     <header class="header">
       <a
-        class="brand"
+        class="brand flex-row-center"
         href="#"
         >Mario Programador</a
       >
-      <nav
-        id="navbar"
-        class="navbar"
-      >
-        <a href="#projects">Projects</a>
-        <a href="#about">About</a>
-        <a href="#contact">Contact</a>
+      <nav id="navbar">
+        <a
+          class="nav-link flex-row-center"
+          href="#projects"
+          >Projects</a
+        >
+        <a
+          class="nav-link flex-row-center"
+          href="#about"
+          >About</a
+        >
+        <a
+          class="nav-link flex-row-center"
+          href="#contact"
+          >Contact</a
+        >
       </nav>
-      <div
-        id="toggle"
-        class="toggle"
-      ></div>
+      <div id="toggle"></div>
     </header>
     <main class="main-section">
       <section
@@ -74,7 +76,7 @@
         <div class="projects-container">
           <figure class="project-tile">
             <img
-              src="https://mariodesarrollador.files.wordpress.com/2022/11/marioamauta.github.io_survey-form_.png"
+              src="https://drive.google.com/uc?id=1k_SlsAzwc8YyhtPJ5SmDtrg4akNo-q8x"
               alt="survey-form-project-screenshot"
             />
             <figcaption class="project-tile-info">
@@ -99,7 +101,7 @@
           </figure>
           <figure class="project-tile">
             <img
-              src="https://mariodesarrollador.files.wordpress.com/2022/11/marioamauta.github.io_javascript-documentation_-1.png"
+              src="https://drive.google.com/uc?id=1bHqHCdGYamt5bgxVUapUtxmveFz_dy78"
               alt="javascript-documentation-project-screenshot"
             />
             <figcaption class="project-tile-info">
@@ -124,7 +126,7 @@
           </figure>
           <figure class="project-tile">
             <img
-              src="https://mariodesarrollador.files.wordpress.com/2022/11/marioamauta.github.io_saxophone-landing-page_.png?"
+              src="https://drive.google.com/uc?id=1I21ngelb8poTXNTXkocFKoKKCemz0DW4"
               alt="the-saxophone-corner-project-screenshot"
             />
             <figcaption class="project-tile-info">
@@ -149,21 +151,21 @@
           </figure>
           <figure class="project-tile">
             <img
-              src="https://mariodesarrollador.files.wordpress.com/2022/11/marioamauta.github.io_survey-form_.png"
+              src="https://drive.google.com/uc?id=1B2SowgfhaZUi2Zo0AG1nDT24hFsJTwq2"
               alt="survey-form-project-screenshot"
             />
             <figcaption class="project-tile-info">
-              <h4 class="project-tile-info-title">The Saxophone Corner</h4>
+              <h4 class="project-tile-info-title">Tribute Page</h4>
               <div class="project-tile-info-links">
                 <a
-                  href="https://github.com/marioAmauta/saxophone-landing-page"
+                  href="https://github.com/marioAmauta/tribute-page"
                   rel="noopener noreferrer"
                   target="_blank"
                 >
                   Code
                 </a>
                 <a
-                  href="https://marioamauta.github.io/saxophone-landing-page/"
+                  href="https://marioamauta.github.io/tribute-page/"
                   rel="noopener noreferrer"
                   target="_blank"
                 >
@@ -179,18 +181,7 @@
         class="about-section"
       >
         <h2 class="section-title">About Me</h2>
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor architecto in quis aut quaerat placeat,
-          deleniti fugit libero quae dicta, cumque aliquid error iure est rem quas neque quasi ab?
-        </p>
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor architecto in quis aut quaerat placeat,
-          deleniti fugit libero quae dicta, cumque aliquid error iure est rem quas neque quasi ab?
-        </p>
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor architecto in quis aut quaerat placeat,
-          deleniti fugit libero quae dicta, cumque aliquid error iure est rem quas neque quasi ab?
-        </p>
+        <p>Hello, my name is Mario, i am a Chilean Web Developer</p>
       </section>
       <section
         id="contact"
@@ -225,17 +216,17 @@
 
     <script>
       const $toggle = document.getElementById('toggle');
-      const $mobileNavbar = document.getElementById('mobile-navbar');
+      const $navbar = document.getElementById('navbar');
 
       $toggle.addEventListener('click', () => {
         $toggle.classList.toggle('active');
-        $mobileNavbar.classList.toggle('active');
+        $navbar.classList.toggle('active');
       });
 
       document.addEventListener('click', e => {
-        if (e.target.id !== 'toggle' && e.target.id !== 'mobile-navbar') {
+        if (e.target.id !== $toggle.id && e.target.id !== $navbar.id) {
           $toggle.classList.remove('active');
-          $mobileNavbar.classList.remove('active');
+          $navbar.classList.remove('active');
         }
       });
 

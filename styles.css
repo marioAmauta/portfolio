@@ -1,9 +1,16 @@
 :root {
-  --header-height: 4rem;
+  --toggle-display: flex;
+
+  --header-height: 3.5rem;
   --header-padding: 0 1.6rem;
 
+  --navbar-position: fixed;
+  --navbar-flex-direction: column;
+  --navbar-width: 100%;
   --navbar-background-color: #000000;
-  --navbar-color: #FFFBEB;
+  --navbar-color: #fffbeb;
+
+  --nav-link-height: 5rem;
 
   --projects-section-padding: var(--header-height) 1rem;
 }
@@ -30,7 +37,6 @@ a {
   text-decoration: none;
   color: inherit;
 }
-
 a:hover,
 a:active,
 a:focus {
@@ -41,6 +47,12 @@ img {
   display: block;
   height: auto;
   width: 100%;
+}
+
+.flex-row-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .to-top-button {
@@ -62,7 +74,6 @@ img {
   color: black;
   cursor: pointer;
 }
-
 .to-top-button span {
   font-size: 1.2rem;
 }
@@ -74,24 +85,53 @@ img {
   position: sticky;
   top: 0;
   z-index: 9;
-  height: var(--header-height);
   width: 100%;
+  height: var(--header-height);
   background-color: var(--navbar-background-color);
   color: var(--navbar-color);
   padding: var(--header-padding);
 }
 
-.toggle {
+#navbar {
   display: flex;
+  flex-direction: var(--navbar-flex-direction);
+  align-items: center;
+  position: var(--navbar-position);
+  top: -100vh;
+  right: 0;
+  left: 0;
+  z-index: 8;
+  transition: 500ms ease-in-out;
+  width: var(--navbar-width);
+  color: var(--navbar-color);
+}
+#navbar.active {
+  top: var(--header-height);
+}
+
+.nav-link {
+  width: 100%;
+  height: var(--nav-link-height);
+  background-color: var(--navbar-background-color);
+}
+.nav-link:hover {
+  color: aqua;
+}
+
+.brand {
+  height: var(--header-height);
+}
+
+#toggle {
+  display: var(--toggle-display);
   justify-content: center;
   align-items: center;
   width: 2rem;
   height: 2rem;
   cursor: pointer;
 }
-
-.toggle::before,
-.toggle::after {
+#toggle::before,
+#toggle::after {
   content: '';
   position: absolute;
   width: 1.6rem;
@@ -99,60 +139,19 @@ img {
   background-color: #fff;
   border-radius: 0.1rem;
 }
-
-.toggle::before {
+#toggle::before {
   transform: translateY(-5px);
   transition: 0.3s;
 }
-
-.toggle::after {
+#toggle::after {
   transform: translateY(5px);
   transition: 0.5s;
 }
-
-.toggle.active::before {
+#toggle.active::before {
   transform: translateY(0px) rotate(45deg);
 }
-
-.toggle.active::after {
+#toggle.active::after {
   transform: translateY(0px) rotate(-45deg);
-}
-
-.mobile-navbar {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  position: fixed;
-  top: -100%;
-  z-index: 8;
-  transition: 600ms ease-in-out;
-  width: 100%;
-  background-color: var(--navbar-background-color);
-  color: var(--navbar-color);
-}
-
-.mobile-navbar.active {
-  top: var(--header-height);
-}
-
-.mobile-navbar a {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 4.5rem;
-  width: 100%;
-}
-
-.mobile-navbar a:hover {
-  color: aqua;
-}
-
-.navbar {
-  display: none;
-  justify-content: space-between;
-  align-items: center;
-  gap: 2rem;
-  height: 100%;
 }
 
 .section-title {
@@ -168,13 +167,11 @@ img {
   background-image: linear-gradient(120deg, black, darkred, gray);
   height: calc(100vh - var(--header-height));
 }
-
 .welcome-section h1 {
   font-size: 2.5rem;
   color: white;
   margin: 0 0 2.5rem 0;
 }
-
 .welcome-section p {
   font-style: italic;
   font-size: 1.2rem;
@@ -185,7 +182,6 @@ img {
   background-color: gray;
   padding: var(--projects-section-padding);
 }
-
 .projects-section h2 {
   text-align: center;
   font-size: 2rem;
@@ -193,7 +189,6 @@ img {
 }
 
 .projects-container {
-  background-color: red;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 400px));
   place-content: center;
@@ -204,22 +199,32 @@ img {
 .project-tile {
   background-color: black;
   color: white;
+  border-radius: 0.5rem;
+  overflow: hidden;
+}
+.project-tile-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem;
+}
+.project-tile-info-links {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
 }
 
 @media screen and (min-width: 48rem) {
   :root {
+    --toggle-display: none;
+
     --header-padding: 0 4rem;
-  }
 
-  .mobile-navbar {
-    display: none;
-  }
+    --navbar-position: unset;
+    --navbar-flex-direction: unset;
+    --navbar-width: 22rem;
 
-  .toggle {
-    display: none;
-  }
-
-  .navbar {
-    display: flex;
+    --nav-link-height: var(--header-height);
   }
 }
