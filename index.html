@@ -14,27 +14,20 @@
       rel="stylesheet"
       href="styles.css"
     />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
-      integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    />
     <meta
       name="theme-color"
       content="black"
     />
-    <title>My Portfolio</title>
+    <title>Mario Programador</title>
     <meta
       name="description"
       content="Hello I am Mario and this is my Portfolio, here you can find information about me and my projects"
     />
   </head>
   <body>
-    <button class="to-top-button">
-      <span class="fa-solid fa-arrow-up"></span>
-    </button>
+    <div class="arrow-up-container">
+      <div class="arrow-up"></div>
+    </div>
     <header class="header">
       <a
         class="brand flex-row-center"
@@ -60,6 +53,23 @@
       </nav>
       <div id="toggle"></div>
     </header>
+    <nav id="mobile-navbar">
+      <a
+        class="nav-link flex-row-center"
+        href="#projects"
+        >Projects</a
+      >
+      <a
+        class="nav-link flex-row-center"
+        href="#about"
+        >About</a
+      >
+      <a
+        class="nav-link flex-row-center"
+        href="#contact"
+        >Contact</a
+      >
+    </nav>
     <main class="main-section">
       <section
         id="welcome-section"
@@ -197,52 +207,58 @@
           My Github profile
         </a>
         <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum, ratione deleniti dolor deserunt voluptatem
-          quam non asperiores atque, illum quibusdam blanditiis sapiente corporis eius molestias? Ab veniam eaque ipsa
-          fuga.
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum, ratione deleniti dolor
+          deserunt voluptatem quam non asperiores atque, illum quibusdam blanditiis sapiente
+          corporis eius molestias? Ab veniam eaque ipsa fuga.
         </p>
         <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum, ratione deleniti dolor deserunt voluptatem
-          quam non asperiores atque, illum quibusdam blanditiis sapiente corporis eius molestias? Ab veniam eaque ipsa
-          fuga.
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum, ratione deleniti dolor
+          deserunt voluptatem quam non asperiores atque, illum quibusdam blanditiis sapiente
+          corporis eius molestias? Ab veniam eaque ipsa fuga.
         </p>
         <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum, ratione deleniti dolor deserunt voluptatem
-          quam non asperiores atque, illum quibusdam blanditiis sapiente corporis eius molestias? Ab veniam eaque ipsa
-          fuga.
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum, ratione deleniti dolor
+          deserunt voluptatem quam non asperiores atque, illum quibusdam blanditiis sapiente
+          corporis eius molestias? Ab veniam eaque ipsa fuga.
         </p>
       </section>
     </main>
-
     <script>
       const $toggle = document.getElementById('toggle');
-      const $navbar = document.getElementById('navbar');
+      const $mobileNavbar = document.getElementById('mobile-navbar');
 
       $toggle.addEventListener('click', () => {
         $toggle.classList.toggle('active');
-        $navbar.classList.toggle('active');
+        $mobileNavbar.classList.toggle('active');
       });
+
+      function removeClassActive(e) {
+        if (e.target.id !== $toggle.id && e.target.id !== $mobileNavbar.id) {
+          $toggle.classList.remove('active');
+          $mobileNavbar.classList.remove('active');
+        }
+      }
 
       document.addEventListener('click', e => {
-        if (e.target.id !== $toggle.id && e.target.id !== $navbar.id) {
-          $toggle.classList.remove('active');
-          $navbar.classList.remove('active');
-        }
+        removeClassActive(e);
       });
 
-      const $toTopButton = document.querySelector('.to-top-button');
+      const $arrowUpContainer = document.querySelector('.arrow-up-container');
 
       window.addEventListener('scroll', () => {
-        const scrollLimit = 600;
+        const scrollLimit = 500;
 
-        if (document.documentElement.scrollTop > scrollLimit || document.body.scrollTop > scrollLimit) {
-          $toTopButton.style.display = 'flex';
+        if (
+          document.documentElement.scrollTop > scrollLimit ||
+          document.body.scrollTop > scrollLimit
+        ) {
+          $arrowUpContainer.style.display = 'flex';
         } else {
-          $toTopButton.style.display = 'none';
+          $arrowUpContainer.style.display = 'none';
         }
       });
 
-      $toTopButton.addEventListener('click', () => {
+      $arrowUpContainer.addEventListener('click', () => {
         document.documentElement.scrollTop = 0;
         document.body.scrollTop = 0;
       });

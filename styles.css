@@ -1,6 +1,9 @@
 :root {
   --toggle-display: flex;
 
+  --navbar-display: none;
+  --mobile-navbar-display: flex;
+
   --header-height: 3.5rem;
   --header-padding: 0 1.6rem;
 
@@ -26,6 +29,7 @@ html {
   box-sizing: inherit;
   margin: 0;
   padding: 0;
+  /* outline: 1px solid yellow; */
 }
 
 body {
@@ -55,27 +59,29 @@ img {
   align-items: center;
 }
 
-.to-top-button {
+.arrow-up-container {
   z-index: 9;
   display: none;
   justify-content: center;
   align-items: center;
   position: fixed;
-  right: 0;
-  bottom: 0;
+  right: 1rem;
+  bottom: 1rem;
   height: 4rem;
   width: 4rem;
-  margin: 0 2rem 3rem 0;
-  border-radius: 50%;
-  border: none;
-  outline: none;
-  background-color: rgba(255, 255, 255, 0.3);
+  background-color: rgba(0, 0, 0, 0.3);
+  color: #fff;
   backdrop-filter: blur(0.5rem);
-  color: black;
-  cursor: pointer;
+  border-radius: 50%;
 }
-.to-top-button span {
-  font-size: 1.2rem;
+
+.arrow-up {
+  border-top: 2px solid;
+  border-left: 2px solid;
+  width: 1.2rem;
+  height: 1.2rem;
+  margin-top: 0.5rem;
+  transform: rotate(45deg);
 }
 
 .header {
@@ -93,7 +99,7 @@ img {
 }
 
 #navbar {
-  display: flex;
+  display: var(--navbar-display);
   flex-direction: var(--navbar-flex-direction);
   align-items: center;
   position: var(--navbar-position);
@@ -105,7 +111,22 @@ img {
   width: var(--navbar-width);
   color: var(--navbar-color);
 }
-#navbar.active {
+
+#mobile-navbar {
+  display: var(--mobile-navbar-display);
+  flex-direction: var(--navbar-flex-direction);
+  align-items: center;
+  position: var(--navbar-position);
+  top: -100vh;
+  right: 0;
+  left: 0;
+  z-index: 8;
+  transition: 500ms ease-in-out;
+  width: var(--navbar-width);
+  color: var(--navbar-color);
+}
+
+#mobile-navbar.active {
   top: var(--header-height);
 }
 
@@ -218,6 +239,9 @@ img {
 @media screen and (min-width: 48rem) {
   :root {
     --toggle-display: none;
+
+    --navbar-display: flex;
+    --mobile-navbar-display: none;
 
     --header-padding: 0 4rem;
 
