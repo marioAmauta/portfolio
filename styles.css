@@ -1,21 +1,23 @@
 :root {
+  --header-height: 4rem;
+  --half-header-height: calc(var(--header-height) / 2);
+  --header-padding: 0 1.6rem;
+  --header-background-color: #000000;
+  --header-color: #fffbeb;
+
   --toggle-display: flex;
 
-  --navbar-display: none;
   --mobile-navbar-display: flex;
 
-  --header-height: 3.5rem;
-  --header-padding: 0 1.6rem;
-
+  --navbar-display: none;
   --navbar-position: fixed;
   --navbar-flex-direction: column;
   --navbar-width: 100%;
-  --navbar-background-color: #000000;
-  --navbar-color: #fffbeb;
 
-  --nav-link-height: 5rem;
+  --nav-link-height: var(--header-height);
+  --nav-link-hover-color: aqua;
 
-  --projects-section-padding: var(--header-height) 1rem;
+  --projects-section-padding: var(--header-height) 1.5rem;
 }
 
 html {
@@ -29,7 +31,7 @@ html {
   box-sizing: inherit;
   margin: 0;
   padding: 0;
-  outline: 1px solid yellowgreen;
+  /* outline: 1px solid yellowgreen; */
 }
 
 body {
@@ -42,20 +44,18 @@ a {
   color: inherit;
 }
 
+a:hover {
+  text-decoration: underline;
+  color: var(--nav-link-hover-color);
+}
+
 img {
   display: block;
   height: auto;
   width: 100%;
 }
 
-.flex-row-center {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
 .arrow-up-container {
-  z-index: 9;
   display: none;
   justify-content: center;
   align-items: center;
@@ -68,11 +68,13 @@ img {
   color: #fff;
   backdrop-filter: blur(0.5rem);
   border-radius: 50%;
+  cursor: pointer;
+  box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.3);
 }
 
 .arrow-up {
-  border-top: 2px solid;
-  border-left: 2px solid;
+  border-top: 3px solid;
+  border-left: 3px solid;
   width: 1.2rem;
   height: 1.2rem;
   margin-top: 0.5rem;
@@ -86,10 +88,9 @@ img {
   position: sticky;
   top: 0;
   z-index: 9;
-  width: 100%;
   height: var(--header-height);
-  background-color: var(--navbar-background-color);
-  color: var(--navbar-color);
+  background-color: var(--header-background-color);
+  color: var(--header-color);
   padding: var(--header-padding);
 }
 
@@ -104,7 +105,6 @@ img {
   z-index: 8;
   transition: 500ms ease-in-out;
   width: var(--navbar-width);
-  color: var(--navbar-color);
 }
 
 #mobile-navbar {
@@ -118,7 +118,7 @@ img {
   z-index: 8;
   transition: 500ms ease-in-out;
   width: var(--navbar-width);
-  color: var(--navbar-color);
+  color: var(--header-color);
 }
 
 #mobile-navbar.active {
@@ -128,15 +128,14 @@ img {
 .nav-link {
   width: 100%;
   height: var(--nav-link-height);
-  background-color: var(--navbar-background-color);
-}
-
-.nav-link:hover {
-  color: aqua;
+  background-color: var(--header-background-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .brand {
-  height: var(--header-height);
+  width: auto;
 }
 
 #toggle {
@@ -179,7 +178,7 @@ img {
 .section-title {
   text-align: center;
   font-size: 2rem;
-  margin-block: 2rem 4rem;
+  margin-block: var(--half-header-height) var(--header-height);
 }
 
 .welcome-section {
@@ -203,6 +202,8 @@ img {
   color: gold;
 }
 
+/* PROJECT SECTION START */
+
 .projects-section {
   background-color: gray;
   padding: var(--projects-section-padding);
@@ -210,18 +211,22 @@ img {
 
 .projects-container {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 400px));
+  grid-template-columns: repeat(auto-fit, minmax(250px, 450px));
   place-content: center;
-  gap: 3rem;
-  margin-bottom: 3rem;
+  gap: 4rem;
+  margin-bottom: var(--header-height);
 }
+
+/* PROJECT TILE START */
 
 .project-tile {
   background-color: black;
   color: white;
-  border-radius: 0.5rem;
+  border-radius: 0.3rem;
   overflow: hidden;
+  box-shadow: 0 0 1rem rgba(0, 0, 0, 0.3);
 }
+
 .project-tile-info {
   display: flex;
   flex-direction: column;
@@ -229,30 +234,47 @@ img {
   gap: 1rem;
   padding: 1rem;
 }
+
 .project-tile-info-links {
   display: flex;
   justify-content: center;
   gap: 2rem;
 }
 
+/* PROJECT TILE END */
+
+/* PROJECT SECTION END */
+
+/* ABOUT SECTION START */
+
 .about-section {
   background-color: red;
   padding: var(--projects-section-padding);
 }
 
+.about-section p:last-child {
+  background-color: yellow;
+  margin-bottom: var(--half-header-height);
+}
+
+/* ABOUT SECTION END */
+
 @media screen and (min-width: 48rem) {
   :root {
+    --header-padding: 0 4rem;
+
     --toggle-display: none;
+
+    --mobile-navbar-display: none;
 
     --navbar-display: flex;
     --navbar-position: unset;
     --navbar-flex-direction: unset;
     --navbar-width: 22rem;
+  }
 
-    --nav-link-height: var(--header-height);
-
-    --mobile-navbar-display: none;
-
-    --header-padding: 0 4rem;
+  .arrow-up-container {
+    right: 2rem;
+    bottom: 2rem;
   }
 }
