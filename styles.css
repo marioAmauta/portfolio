@@ -29,7 +29,7 @@ html {
   box-sizing: inherit;
   margin: 0;
   padding: 0;
-  /* outline: 1px solid yellow; */
+  outline: 1px solid yellowgreen;
 }
 
 body {
@@ -40,11 +40,6 @@ body {
 a {
   text-decoration: none;
   color: inherit;
-}
-a:hover,
-a:active,
-a:focus {
-  text-decoration: underline;
 }
 
 img {
@@ -135,6 +130,7 @@ img {
   height: var(--nav-link-height);
   background-color: var(--navbar-background-color);
 }
+
 .nav-link:hover {
   color: aqua;
 }
@@ -151,6 +147,7 @@ img {
   height: 2rem;
   cursor: pointer;
 }
+
 #toggle::before,
 #toggle::after {
   content: '';
@@ -160,24 +157,29 @@ img {
   background-color: #fff;
   border-radius: 0.1rem;
 }
+
 #toggle::before {
   transform: translateY(-5px);
   transition: 0.3s;
 }
+
 #toggle::after {
   transform: translateY(5px);
   transition: 0.5s;
 }
+
 #toggle.active::before {
   transform: translateY(0px) rotate(45deg);
 }
+
 #toggle.active::after {
   transform: translateY(0px) rotate(-45deg);
 }
 
 .section-title {
   text-align: center;
-  margin: 1rem auto;
+  font-size: 2rem;
+  margin-block: 2rem 4rem;
 }
 
 .welcome-section {
@@ -188,12 +190,14 @@ img {
   background-image: linear-gradient(120deg, black, darkred, gray);
   height: calc(100vh - var(--header-height));
 }
-.welcome-section h1 {
+
+.welcome-section-title {
   font-size: 2.5rem;
   color: white;
-  margin: 0 0 2.5rem 0;
+  margin-bottom: 2.5rem;
 }
-.welcome-section p {
+
+.welcome-section-subtitle {
   font-style: italic;
   font-size: 1.2rem;
   color: gold;
@@ -202,11 +206,6 @@ img {
 .projects-section {
   background-color: gray;
   padding: var(--projects-section-padding);
-}
-.projects-section h2 {
-  text-align: center;
-  font-size: 2rem;
-  margin: 2rem 0 4rem 0;
 }
 
 .projects-container {
@@ -236,19 +235,24 @@ img {
   gap: 2rem;
 }
 
+.about-section {
+  background-color: red;
+  padding: var(--projects-section-padding);
+}
+
 @media screen and (min-width: 48rem) {
   :root {
     --toggle-display: none;
 
     --navbar-display: flex;
-    --mobile-navbar-display: none;
-
-    --header-padding: 0 4rem;
-
     --navbar-position: unset;
     --navbar-flex-direction: unset;
     --navbar-width: 22rem;
 
     --nav-link-height: var(--header-height);
+
+    --mobile-navbar-display: none;
+
+    --header-padding: 0 4rem;
   }
 }
