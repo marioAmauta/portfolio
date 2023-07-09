@@ -187,18 +187,25 @@ img {
 }
 
 .section-title {
+  z-index: 8;
   text-align: center;
   font-size: 2rem;
-  padding-block: calc(var(--half-header-height) / 2);
-  margin-bottom: var(--half-header-height);
+  padding-block: var(--half-header-height);
   position: sticky;
   top: var(--section-title-top);
 }
 
 .section-title.active {
-  background: rgba(0, 0, 0, 0.8);
-  transition: 500ms ease-in-out all;
+  background: black;
+  transition: 500ms ease-in-out;
   color: white;
+  padding-block: calc(var(--half-header-height) / 2);
+}
+
+.section-title.inactive {
+  background: transparent;
+  transition: 500ms ease-in-out;
+  color: unset;
 }
 
 .welcome-section {
@@ -206,6 +213,7 @@ img {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  gap: 4rem;
   background-image: linear-gradient(120deg, black, darkred, gray);
   height: calc(100vh - var(--header-height));
 }
@@ -213,7 +221,6 @@ img {
 .welcome-section-title {
   font-size: 2.5rem;
   color: white;
-  margin-bottom: 2.5rem;
 }
 
 .welcome-section-subtitle {
@@ -233,18 +240,17 @@ img {
   grid-template-columns: repeat(auto-fit, minmax(250px, 450px));
   place-content: center;
   gap: 4rem;
-  margin-bottom: var(--header-height);
   padding: var(--projects-section-padding);
 }
 
 /* PROJECT TILE START */
 
 .project-tile {
-  background-color: black;
   color: white;
   border-radius: 0.3rem;
   overflow: hidden;
   box-shadow: 0 0 1rem rgba(0, 0, 0, 0.3);
+  background: black;
 }
 
 .project-tile-info {

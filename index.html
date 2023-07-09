@@ -268,9 +268,11 @@
 
         $sectionTitles.forEach($sectionTitle => {
           if ($sectionTitle.getClientRects()[0].top === $header.offsetHeight) {
+            $sectionTitle.classList.remove('inactive');
             $sectionTitle.classList.add('active');
           } else {
             $sectionTitle.classList.remove('active');
+            $sectionTitle.classList.add('inactive');
           }
         });
       });
