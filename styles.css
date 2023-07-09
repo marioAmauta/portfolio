@@ -2,7 +2,7 @@
   --header-height: 4rem;
   --half-header-height: calc(var(--header-height) / 2);
   --header-padding: 0 1.6rem;
-  --header-background-color: #000000;
+  --header-background-color: black;
   --header-color: #fffbeb;
 
   --toggle-display: flex;
@@ -18,6 +18,8 @@
   --nav-link-hover-color: aqua;
 
   --projects-section-padding: var(--header-height) 1.5rem;
+
+  --section-title-top: var(--header-height);
 }
 
 html {
@@ -37,6 +39,7 @@ html {
 body {
   font-family: Arial, Helvetica, sans-serif;
   font-size: 16px;
+  background-color: black;
 }
 
 a {
@@ -56,6 +59,7 @@ img {
 }
 
 .arrow-up-container {
+  z-index: 9;
   display: none;
   justify-content: center;
   align-items: center;
@@ -64,8 +68,8 @@ img {
   bottom: 1rem;
   height: 4rem;
   width: 4rem;
-  background-color: rgba(0, 0, 0, 0.3);
   color: #fff;
+  background-color: rgba(0, 0, 0, 0.3);
   backdrop-filter: blur(0.5rem);
   border-radius: 50%;
   cursor: pointer;
@@ -90,6 +94,7 @@ img {
   z-index: 9;
   height: var(--header-height);
   background-color: var(--header-background-color);
+  border-bottom: 1px solid black;
   color: var(--header-color);
   padding: var(--header-padding);
 }
@@ -116,19 +121,23 @@ img {
   right: 0;
   left: 0;
   z-index: 8;
-  transition: 500ms ease-in-out;
+  transition: 500ms;
   width: var(--navbar-width);
   color: var(--header-color);
+  background-color: var(--header-background-color);
 }
 
 #mobile-navbar.active {
   top: var(--header-height);
 }
 
+#mobile-navbar .nav-link {
+  backdrop-filter: blur(0.5rem);
+}
+
 .nav-link {
   width: 100%;
   height: var(--nav-link-height);
-  background-color: var(--header-background-color);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -136,6 +145,8 @@ img {
 
 .brand {
   width: auto;
+  background-color: unset;
+  backdrop-filter: unset;
 }
 
 #toggle {
@@ -178,7 +189,16 @@ img {
 .section-title {
   text-align: center;
   font-size: 2rem;
-  margin-block: var(--half-header-height) var(--header-height);
+  padding-block: calc(var(--half-header-height) / 2);
+  margin-bottom: var(--half-header-height);
+  position: sticky;
+  top: var(--section-title-top);
+}
+
+.section-title.active {
+  background: rgba(0, 0, 0, 0.8);
+  transition: 500ms ease-in-out all;
+  color: white;
 }
 
 .welcome-section {
@@ -206,7 +226,6 @@ img {
 
 .projects-section {
   background-color: gray;
-  padding: var(--projects-section-padding);
 }
 
 .projects-container {
@@ -215,6 +234,7 @@ img {
   place-content: center;
   gap: 4rem;
   margin-bottom: var(--header-height);
+  padding: var(--projects-section-padding);
 }
 
 /* PROJECT TILE START */
@@ -249,11 +269,13 @@ img {
 
 .about-section {
   background-color: red;
+}
+
+.about-section-info {
   padding: var(--projects-section-padding);
 }
 
-.about-section p:last-child {
-  background-color: yellow;
+.about-section p {
   margin-bottom: var(--half-header-height);
 }
 

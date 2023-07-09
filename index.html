@@ -191,12 +191,14 @@
         class="about-section"
       >
         <h2 class="section-title">About Me</h2>
-        <p>My name is Mario Poblete and I am a Chilean self-taught Web Developer.</p>
-        <p>
-          One of the things I like the most is to always be learning something new. The proof of
-          that is that throughout my lifetime, I have had the opportunity to learn multiple
-          disciplines, with Software Development being the latest of them.
-        </p>
+        <div class="about-section-info">
+          <p>My name is Mario Poblete and I am a Chilean self-taught Web Developer.</p>
+          <p>
+            One of the things I like the most is to always be learning something new. The proof of
+            that is that throughout my lifetime, I have had the opportunity to learn multiple
+            disciplines, with Software Development being the latest of them.
+          </p>
+        </div>
       </section>
       <section
         id="contact"
@@ -231,6 +233,8 @@
     <script>
       const $toggle = document.getElementById('toggle');
       const $mobileNavbar = document.getElementById('mobile-navbar');
+      const $header = document.querySelector('header');
+      const $sectionTitles = document.querySelectorAll('.section-title');
 
       $toggle.addEventListener('click', () => {
         $toggle.classList.toggle('active');
@@ -261,6 +265,14 @@
         } else {
           $arrowUpContainer.style.display = 'none';
         }
+
+        $sectionTitles.forEach($sectionTitle => {
+          if ($sectionTitle.getClientRects()[0].top === $header.offsetHeight) {
+            $sectionTitle.classList.add('active');
+          } else {
+            $sectionTitle.classList.remove('active');
+          }
+        });
       });
 
       $arrowUpContainer.addEventListener('click', () => {
