@@ -38,17 +38,17 @@
         <a
           class="nav-link"
           href="#projects"
-          >Projects</a
+          >My Projects</a
         >
         <a
           class="nav-link"
           href="#about"
-          >About</a
+          >About Me</a
         >
         <a
           class="nav-link"
           href="#contact"
-          >Contact</a
+          >Contact Info</a
         >
       </nav>
       <div id="toggle"></div>
@@ -57,17 +57,17 @@
       <a
         class="nav-link"
         href="#projects"
-        >Projects</a
+        >My Projects</a
       >
       <a
         class="nav-link"
         href="#about"
-        >About</a
+        >About Me</a
       >
       <a
         class="nav-link"
         href="#contact"
-        >Contact</a
+        >Contact Info</a
       >
     </nav>
     <main class="main-section">
@@ -82,7 +82,7 @@
         id="projects"
         class="projects-section"
       >
-        <h2 class="section-title">Some of my projects</h2>
+        <h2 class="section-title">My Projects</h2>
         <div class="projects-container">
           <figure class="project-tile">
             <img
@@ -191,12 +191,21 @@
         class="about-section"
       >
         <h2 class="section-title">About Me</h2>
-        <div class="about-section-info">
-          <p>My name is Mario Poblete and I am a Chilean self-taught Web Developer.</p>
+        <div class="section-info">
           <p>
-            One of the things I like the most is to always be learning something new. The proof of
-            that is that throughout my lifetime, I have had the opportunity to learn multiple
-            disciplines, with Software Development being the latest of them.
+            Hello! My name is Mario Poblete, and I am a self-taught Front-End Developer. I have a
+            passion for coding and enjoy exploring new technologies and frameworks. My journey into
+            the world of development began as a hobby, and I quickly fell in love with it.
+          </p>
+          <p>
+            Apart from coding, I have a few other hobbies that keep me entertained. I find solace in
+            playing the saxophone and drums, as well as improving my English speaking skills.
+          </p>
+          <p>
+            As a developer, I possess a range of skills that enable me to build dynamic and
+            interactive web applications. I am proficient in HTML, CSS, JavaScript, TypeScript,
+            React, Next.js, Node.js, Express, MongoDB, and Git. These tools allow me to craft
+            elegant and user-friendly solutions.
           </p>
         </div>
       </section>
@@ -204,30 +213,10 @@
         id="contact"
         class="contact-section"
       >
-        <h2 class="section-title">Contact</h2>
-        <a
-          id="profile-link"
-          href="https://github.com/marioAmauta/"
-          rel="noopener noreferrer"
-          target="_blank"
-        >
-          My Github profile
-        </a>
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum, ratione deleniti dolor
-          deserunt voluptatem quam non asperiores atque, illum quibusdam blanditiis sapiente
-          corporis eius molestias? Ab veniam eaque ipsa fuga.
-        </p>
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum, ratione deleniti dolor
-          deserunt voluptatem quam non asperiores atque, illum quibusdam blanditiis sapiente
-          corporis eius molestias? Ab veniam eaque ipsa fuga.
-        </p>
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum, ratione deleniti dolor
-          deserunt voluptatem quam non asperiores atque, illum quibusdam blanditiis sapiente
-          corporis eius molestias? Ab veniam eaque ipsa fuga.
-        </p>
+        <h2 class="section-title">Contact Info</h2>
+        <div class="section-info">
+          <p>If you want to get in touch with me, you can do so by sending me an email to</p>
+        </div>
       </section>
     </main>
     <script>
@@ -235,11 +224,7 @@
       const $mobileNavbar = document.getElementById('mobile-navbar');
       const $header = document.querySelector('header');
       const $sectionTitles = document.querySelectorAll('.section-title');
-
-      $toggle.addEventListener('click', () => {
-        $toggle.classList.toggle('active');
-        $mobileNavbar.classList.toggle('active');
-      });
+      const $arrowUpContainer = document.querySelector('.arrow-up-container');
 
       function removeClassActive(e) {
         if (e.target.id !== $toggle.id && e.target.id !== $mobileNavbar.id) {
@@ -248,11 +233,14 @@
         }
       }
 
-      document.addEventListener('click', e => {
-        removeClassActive(e);
-      });
+      function handleMobileNavbarActive(e) {
+        if ($mobileNavbar.classList.contains('active')) {
+          e.preventDefault();
+          e.stopPropagation();
 
-      const $arrowUpContainer = document.querySelector('.arrow-up-container');
+          return false;
+        }
+      }
 
       window.addEventListener('scroll', () => {
         const scrollLimit = 500;
@@ -267,14 +255,29 @@
         }
 
         $sectionTitles.forEach($sectionTitle => {
-          if ($sectionTitle.getClientRects()[0].top === $header.offsetHeight) {
-            $sectionTitle.classList.remove('inactive');
+          if ($sectionTitle.getClientRects()[0].top <= $header.offsetHeight) {
             $sectionTitle.classList.add('active');
           } else {
             $sectionTitle.classList.remove('active');
-            $sectionTitle.classList.add('inactive');
           }
         });
+      });
+
+      document.addEventListener('click', e => {
+        removeClassActive(e);
+      });
+
+      $toggle.addEventListener('click', () => {
+        $toggle.classList.toggle('active');
+        $mobileNavbar.classList.toggle('active');
+      });
+
+      $mobileNavbar.addEventListener('wheel', e => {
+        handleMobileNavbarActive(e);
+      });
+
+      $mobileNavbar.addEventListener('touchmove', e => {
+        handleMobileNavbarActive(e);
       });
 
       $arrowUpContainer.addEventListener('click', () => {
